@@ -15,7 +15,7 @@
         android:id="@+id/etDeporte"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Ingrese deporte"/>
+        android:hint="Ingrese deporte" />
 
     <EditText
         android:id="@+id/etTiempo"
