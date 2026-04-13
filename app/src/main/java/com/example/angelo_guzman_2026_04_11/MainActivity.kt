@@ -13,8 +13,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Log de advertencia al abrir la app
-        Log.w("APP_INICIO", "La aplicación ha sido iniciada")
+        // 1. Registro de advertencia en la consola (Requisito)
+        Log.w("APP_INICIO", "Advertencia: La aplicación ha sido iniciada")
+
+        // 2. Toast específico solicitado
+        val toast1 = Toast.makeText(this, "Bienvenido a Entrenador Virtual", Toast.LENGTH_SHORT)
+        toast1.show()
 
         val deporte = findViewById<EditText>(R.id.etDeporte)
         val tiempo = findViewById<EditText>(R.id.etTiempo)
@@ -24,7 +28,7 @@ class MainActivity : AppCompatActivity() {
             val deporteTexto = deporte.text.toString().trim()
             val tiempoTexto = tiempo.text.toString().trim()
 
-            // Validación de campos vacíos
+            // Validación de campos
             if (deporteTexto.isEmpty() || tiempoTexto.isEmpty()) {
                 Toast.makeText(this, "Por favor, complete todos los campos", Toast.LENGTH_SHORT)
                     .show()
@@ -33,10 +37,10 @@ class MainActivity : AppCompatActivity() {
 
             val mensaje = "Entrenamiento: $deporteTexto por $tiempoTexto minutos"
 
-            // Mostrar alerta (Toast)
+            // 3. Mostrar información como mensaje de alerta (Toast)
             Toast.makeText(this, mensaje, Toast.LENGTH_LONG).show()
 
-            // Mostrar en Logcat
+            // 4. Mostrar en consola del desarrollador (Logcat)
             Log.i("ENTRENAMIENTO", mensaje)
         }
     }
